@@ -5,6 +5,7 @@ import numpy as np
 class PIITrainTestSplit:
 
     def split_data(self, input_df, input_data_columns):
+        np.random.seed(0)
         Y = pd.factorize(input_df['label'])[0]
         input_df['label'] = pd.Categorical.from_codes(Y, input_data_columns)
 
